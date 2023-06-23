@@ -1,9 +1,9 @@
-function ApartmentsList() {
+function ApartmentsList(props) {
 
-    return(
-    <h1>This is ApartmentsList</h1>
-    );
-    };
+    console.log(props.list)
+    // return();
+
+}
     
     
 export default ApartmentsList;
