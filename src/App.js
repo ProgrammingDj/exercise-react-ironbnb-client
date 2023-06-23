@@ -25,22 +25,6 @@ axios.get(`${baseURL}`)
   .catch(e => console.log(e));
 };
 
-const renderList = () => {
-  if (appArray === null) {
-    return <p>loading...</p>
-  } else {
-    return appArray.map((apValue)=> {
-      console.log(apValue)
-      return (
-      <div key={apValue.id} className="box">
-        Name: {apValue.title} <br/>
-        Image: <img src={apValue.img} alt={apValue.title}></img>
-        Cost per Night: {apValue.pricePerDay}
-      </div>
-      )
-    })
-  }
-}
 
   return (
 <div className="App">
@@ -52,8 +36,8 @@ const renderList = () => {
 
   <Routes>
   <Route path="/" element={<HomePage/>}/>
-  <Route path="/apartments" element={renderList()} />
-  <Route path="/apartments/:id" element={<ApartmentDetails/>}/>
+  <Route path="/apartments" element={<ApartmentsList listOfAps={appArray}/>} />
+  <Route path="/apartments/:_id" element={<ApartmentDetails listOfAps={appArray}/>}/>
   <Route path="/apartments/create" element={<CreateApartment/>}/>
   </Routes>
   
